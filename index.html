@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Business Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<link rel="stylesheet" href="style.css">
+<!-- Remixicon -->
+<link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+
+
+  <!-- Demo styles -->
+  <style>
+    /* html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    } */
+
+    /* .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+
+    /* .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    } */
+  </style>
+</head>
+
+<body>
+
+  <div class="home" id="home">
+    <nav class="change-header">
+      <div class="nav-logo">
+        <i class="ri-suitcase-line"></i>
+        <h2>Company</h2>
+      </div>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="#home" class="pages">Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="pages">About</a>
+          </li>
+
+          <li>
+            <a href="#services" class="pages">Services</a>
+          </li>
+
+          <li>
+            <a href="#newsletter" class="pages">Newsletter</a>
+          </li>
+
+        </ul>
+
+        <img src="/assets/line.png" id="banner">
+
+    <!--todo------------- nav-close nav-toogle üzerine yazılamadı  ---------------------------->
+        <div class="nav-close" id="nav-close" onclick="hideNav()">
+          <i class="ri-close-circle-line"></i>
+        </div>
+
+
+      </div>
+
+      <i class="ri-sun-line" id="sun"></i>
+      <i class="ri-moon-line" id="moon"></i>
+    
+      <div class="nav-toggle" onclick="showNav()">
+        <i class="ri-apps-line" id="nav-toggle"></i>
+        
+      </div>
+    
+    </nav>
+
+    <div class="header" id="header">
+      <div class="content">
+        <h2 id="title">Business <span>Website</span></h2>
+        <br>This business website provides many services to make life<br> more purposeful and fulfilling for you, your family, and more!</p>
+        <button>Learn More
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+      <img src="assets/programming.svg" alt="">
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+ <!-- -------------------About------------------- -->
+
+ <div class="about" id="about">
+  <h2>About</h2>
+  <div class="content first">
+    <img src="assets/about.png" alt="">
+    <p>
+      <span>Overview</span><br>
+      This business website provides many services <br>to make life more purposeful and fulfilling<br> for you, your family, and more!
+      
+    </p>
+  </div>
+
+  <div class="content first">
+    <p>
+      <span>Why Choose Us?</span><br>
+      We help you to organise information<br> to make life more simple and enjoyable <br> for you, your family, and more!
+      
+    </p>
+    <img src="assets/engineer.svg" alt="">
+  </div>
+
+</div>
+
+
+
+ <!-- ---------------------------- Services ---------------------------- -->
+
+ <div class="services" id="services">
+  <h2>Services</h2>
+  <p>Here are some of the services we provide. <br> Check them out!</p>
+
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <i class="ri-heart-line"></i>
+        <h2>Improve Security <br> Using 2FA</h2>
+        <img src="assets/security.svg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <i class="ri-heart-line"></i>
+        <h2>Teaching Online <br> For Learning Remotely</h2>
+        <img src="assets/teaching.svg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <i class="ri-heart-line"></i>
+        <h2>Online Newsletter <br> Updated World News</h2>
+        <img src="assets/newsletter.svg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <i class="ri-heart-line"></i>
+        <h2>Communication <br> Better Teams</h2>
+        <img src="assets/communicating.svg" alt="">
+      </div>
+      
+      
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- -------------------------- NEWSLETTER -------------------------- -->
+<div class="newsletter" id="newsletter">
+  <h2>Newsletter</h2>
+  <p>Subscribe to our newsletter for the latest updates</p>
+
+
+  <div class="subscribe">
+    <img src="assets/subscribe.svg" alt="">
+    <form action="">
+      <input type="email" placeholder="Enter E-mail" autocomplete="off" required="required" id="email">
+      <button type="submit" onclick="subscribe()">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- ------------------------ Footer ------------------------ -->
+<div class="footer">
+  <div class="links">
+    <ul>
+      <li><h2>Overview</h2></li>
+      <li><a href="#">Prices</a></li>
+      <li><a href="#">Promotion</a></li>
+      <li><a href="#">Privacy & Policy</a></li>
+    </ul>
+    
+    <ul>
+      <li><h2>Others</h2></li>
+      <li><a href="#">Donate</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Our Team</a></li>
+    </ul>
+
+     
+
+
+  </div>
+  <p>© Copyright 2023. Omur Kasap</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ! ------------------------------------------------------- -->
+
+  <!-- Swiper -->
+  <!-- <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div> -->
+
+
+
+
+
+  <script src="script.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      slidesPerView: 3,
+      centeredSlides: 'true',
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        type: 'bullets',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+    });
+  </script>
+</body>
+
+</html>
