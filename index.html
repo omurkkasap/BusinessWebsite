@@ -18,50 +18,23 @@
 
 
 
-  <!-- Demo styles -->
-  <style>
-    /* html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    } */
-
-    /* .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    } */
-
-    /* .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    } */
-  </style>
+  
 </head>
 
 <body>
+<!-- -------------------------Preloader------------------------- -->
+<div class="preloader">
+  <span class="loader"></span>
+</div>
+<!-- -------------------------Scroll to top button------------------------- -->
+<div id="scrollTop">
+  <i class="ri-arrow-up-line" onclick="topClick()"></i>
+</div>
 
+
+<!-- -------------------------Header------------------------- -->
   <div class="home" id="home">
-    <nav class="change-header">
+    <nav>
       <div class="nav-logo">
         <i class="ri-suitcase-line"></i>
         <h2>Company</h2>
@@ -89,7 +62,7 @@
 
         <img src="/assets/line.png" id="banner">
 
-    <!--todo------------- nav-close nav-toogle üzerine yazılamadı  ---------------------------->
+
         <div class="nav-close" id="nav-close" onclick="hideNav()">
           <i class="ri-close-circle-line"></i>
         </div>
@@ -108,14 +81,14 @@
     </nav>
 
     <div class="header" id="header">
-      <div class="content">
+      <div class="content"  data-inViewport = 'slideTop'>
         <h2 id="title">Business <span>Website</span></h2>
         <p><br>This business website provides many services to make life<br> more purposeful and fulfilling for you, your family, and more!</p>
-        <button>Learn More
+        <button onclick="scrollToAbout()">Learn More
           <i class="ri-arrow-right-line"></i>
         </button>
       </div>
-      <img src="assets/programming.svg" alt="">
+      <img src="assets/programming.svg" alt="" data-inViewport = 'slideLeft'>
     </div>
 
 
@@ -131,21 +104,21 @@
  <div class="about" id="about">
   <h2>About</h2>
   <div class="content first">
-    <img src="assets/about.png" alt="">
-    <p>
+    <img src="assets/about.png" alt=""  data-inViewport = 'slideTop'>
+    <p  data-inViewport = 'slideLeft'>
       <span>Overview</span><br>
       This business website provides many services <br>to make life more purposeful and fulfilling<br> for you, your family, and more!
       
     </p>
   </div>
 
-  <div class="content first">
+  <div class="content first" data-inViewport = 'slideRight'>
     <p>
       <span>Why Choose Us?</span><br>
       We help you to organise information<br> to make life more simple and enjoyable <br> for you, your family, and more!
       
     </p>
-    <img src="assets/engineer.svg" alt="">
+    <img src="assets/engineer.svg" alt="" data-inViewport = 'slideBottom'>
   </div>
 
 </div>
@@ -160,7 +133,7 @@
 
 
   <!-- Swiper -->
-  <div class="swiper mySwiper">
+  <div class="swiper mySwiper" data-inViewport = 'slideTop'>
     <div class="swiper-wrapper">
       
       <div class="swiper-slide">
@@ -229,45 +202,11 @@
       <li><a href="#">Our Team</a></li>
     </ul>
 
-     
 
 
   </div>
   <p>© Copyright 2023. Omur Kasap</p>
 </div>
-
-
-
-
-
-
-
-
-
-<!-- https://www.youtube.com/watch?v=HEHJmneClg0 1:12:40 -->
-
-
-
-
-<!-- ! ------------------------------------------------------- -->
-
-  <!-- Swiper -->
-  <!-- <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div> -->
-
-
 
 
 
@@ -291,6 +230,21 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
+      breakpoints: {
+        // site genişliği >= 880px olduğunda
+        slidesPerView: 3,
+        spaceBetween:20,
+      },
+      570: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        with: 480
+      },
+      330: {
+        slidesPerView: 1,
+        spaceBetween:10,
+        with: 280,
+      }
     });
   </script>
 </body>

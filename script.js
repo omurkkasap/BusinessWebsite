@@ -1,8 +1,26 @@
 // ----------------------- PRELOADER -----------------------*/
+let loader = document.querySelector('.preloader');
 
+window.addEventListener('load', function(){
+  loader.style.display = 'none';
+})
 
 // ----------------------- SCROLL TO TOP BUTTON CHANGE -----------------------*/
+function showScrollToTopBtn(){
+  if (document.body.scroll > 400 || document.documentElement.scrollTop > 400) {
+    document.getElementById('scrollTop').style.opacity = '1';
+    document.getElementById('scrollTop').style.visibility = 'visible';
+  }else {
+    document.getElementById('scrollTop').style.opacity = '0';
+    document.getElementById('scrollTop').style.visibility = 'hidden';
+  }
+}
 
+window.addEventListener('scroll', showScrollToTopBtn);
+
+function topClick() {
+  document.documentElement.scrollTop = 0
+}
 
 
 // ----------------------- CHANGE HEADER ON SCROLL -----------------------*/
@@ -59,10 +77,6 @@ navLinks.forEach(link => {
 })
 
 
-// ------------------------------------- SWIPER -------------------------------------
-
-
-
 // ------------------------------------- Subscribe FORM -------------------------------------
 function subscribe() {
   if (document.getElementById('email').validity.valid) {
@@ -72,7 +86,25 @@ function subscribe() {
   }
 }
 // ------------------------------------- SCROLL TO -------------------------------------
+function scrollToAbout() {
+  let about = document.getElementById('about');
+  about.scrollIntoView();
+}
 // ------------------------------------- SCROLL REVEAL -------------------------------------
+const inViewport = (entries, observer) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('is-inViewport', entry.isIntersecting);
+  })
+}
+
+const Obs = new IntersectionObserver(inViewport);
+const obsObtions = {};
+const ELs_inviewport = document.querySelectorAll('[data-inviewport]')
+ELs_inviewport.forEach(EL => {
+  Obs.observe(EL, obsObtions);
+})
+
+
 // ------------------------------------- TOGGLE DAY/NIGHT MODE -------------------------------------
 let moon = document.getElementById('moon');
 let sun = document.getElementById('sun');

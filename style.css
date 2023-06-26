@@ -23,6 +23,79 @@
 
 }
 
+/* --------------- Preloader --------------- */
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: var(--bg-color);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 100000000000000;
+}
+
+.loader {
+  position: relative;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  background: transparent;
+  border-top: 2.2px solid var(--dark-color);
+  border-left: 2.2px solid var(--dark-color);
+  border-bottom: none;
+  border-right: none;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* --------------- Scroll to top Button --------------- */
+#scrollTop {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: translate(90vw, 90vh);
+  cursor: pointer;
+  z-index: 10000;
+  transition: all 0.5s;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#scrollTop i {
+  background: var(--dark-color);
+  font-size: 1.5em;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--bg-color);
+  transition: all 0.5s;
+}
+
+#scrollTop i:hover {
+  color: #fff;
+  background-color: #56268a;
+}
+/* --------------- Scrollbar --------------- */
+::-webkit-scrollbar {
+  background: #d7d7d7;
+  width: 11px;
+  border-radius: 10px;
+  margin: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #858585;
+  border-radius: 10px;
+
+}
 /* --------------- Main Header --------------- */
 .home{
   width: 100%;
@@ -64,7 +137,7 @@
 .nav-logo h2 {
   font-family: 'Poppins';
   font-size: 20px;
-  padding: 0;
+  padding-top: 4px;
   margin: 20px;
   top: 0;
   cursor: pointer;
@@ -146,7 +219,6 @@
   transition: all 0.5s;
 }
 
-/* todo karanlık mod yapılacak mobil navbar switch'den ayrılacak */
 
 .nav-toggle{
   display: none;
@@ -209,13 +281,6 @@ nav i {
 
 
   .nav-close{
-    /* display: block;
-    visibility: visible;
-    font-size: 1.5em;
-    top: 18px;
-    right: 32px;
-    cursor: pointer;
-    transition: all 0.5s; */
     display: inline-flex;
     visibility: visible;
     cursor: pointer;
@@ -282,6 +347,7 @@ h2 {
   color: var(--dark-color);
   font-family: 'Poppins', sans-serif;
   font-size: var(--larger-font);
+  text-align: left;
   margin: 0;
   padding: 0;
 }
@@ -404,6 +470,11 @@ button i {
 
 .services p {
   padding: 10px;
+}
+
+div .swiper {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .swiper {
@@ -617,5 +688,209 @@ color: var(--hover-color);
 .footer p a {
   color: var(--hover-color);
 }
-/* ------------------------- Services ------------------------- */
-/* ------------------------- Services ------------------------- */          
+/* ------------------------- Slide in When in view ------------------------- */
+/* For slide in from left */
+[data-inViewport = 'slideLeft'] {
+  transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-4em);
+  transition-delay: 0.2s;
+}
+
+[data-inViewport='slideLeft'].is-inViewport {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0em);
+}
+
+
+/*! For slide in from top */
+
+[data-inViewport = 'slideTop'] {
+  transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4em);
+  transition-delay: 0.2s;
+}
+
+[data-inViewport='slideTop'].is-inViewport {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0em);
+}
+/* ? For slide in from Right */
+
+[data-inViewport = 'slideRight'] {
+  transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(4em);
+  transition-delay: 0.2s;
+}
+
+[data-inViewport='slideRight'].is-inViewport {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0em);
+  transition-delay: 0.2s;
+}
+
+/* ? For slide in from bottom */
+[data-inViewport = 'slideBottom'] {
+  transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4em);
+  transition-delay: 0.2s;
+}
+
+[data-inViewport='slideBottom'].is-inViewport {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0em);
+}
+
+/* ------------------------- Breakpoints/Screen Adapt ------------------------- */          
+
+@media screen and (max-width: 1023px) {
+  .newsletter img {
+    scale: 0.9;
+    transform: translate(-20px, -5px);
+  }
+
+  .newsletter form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 945px) {
+  .content {
+    scale: 0.83;
+  }
+  .header img {
+    position: relative;
+  }
+  .subscribe img {
+    transform: translateY(3px);
+    scale: 0.85;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 120px;
+  }
+  .header img {
+    position: relative;
+    top: -120px;
+    scale: 0.7;
+  }
+  .swiper .swiper-slide {
+    width: 200px;
+  }
+  .swiper{
+    scale: 0.9;
+  }
+  .subscribe form input {
+    width: 160px;
+  }
+  .subscribe form button {
+    scale: 0.9;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  .header img {
+    scale: 0.5;
+  }
+  .swiper {
+    scale: 0.8;
+    transform: translateX(-20px);
+  }
+  .subscribe img {
+    scale: 0.7;
+    transform: translate(-20px, 0px);
+  }
+  .subscribe form {
+    transform: translate(-25px);
+  }
+}
+
+@media screen and (max-width: 643px) {
+  .swiper {
+    scale: 0.7;
+  }
+  .subscribe img {
+    scale: 0.6;
+  }
+  .subscribe form {
+    scale: 0.9;
+    transform: translateX(-45px);
+  }
+}
+
+@media screen and (max-width: 555px) {
+  #scrollTop {
+    scale: 0.85;
+    transform: translate(105vw, 105vh);
+  }
+  .header img {
+    scale: 0.5;
+    left: 40px;
+  }
+  .about .content {
+    display: flex;
+    flex-direction: column !important ;
+
+  }
+  .about .first {
+    display: flex;
+    flex-direction: column-reverse !important;
+  }
+  .about img[src="assets/engineer.svg"] {
+    margin: 2em 1.3em;
+  }
+  .swiper {
+    scale: 0.55;
+  }
+  .subscribe form {
+    padding-left: 8px;
+  }
+  .subscribe img {
+    scale: 0.5;
+    transform: translateX(-5px);
+  }
+  @media screen and (max-width: 460px) {
+    #scrollTop {
+      scale: 0.75;
+      transform: translate(115vw, 120vh);
+    }
+    .swiper {
+      scale: 0.45;
+    }
+    .subscribe {
+      width: 70%;
+    }
+    .subscribe img {
+      scale: 0.4;
+      transform: translateX(0px);
+    }
+    .subscribe form input {
+      width: 130px;
+    }
+  }
+  @media screen and (max-width: 404px) {
+    .swiper {
+      scale: 0.4;
+      top: -60px;
+    }
+    .subscribe form input {
+      width: 120px;
+    }
+  }
+}
